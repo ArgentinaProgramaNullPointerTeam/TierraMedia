@@ -1,6 +1,6 @@
 package tierraMedia;
 
-public class Atraccion {
+public class Atraccion extends Producto {
 	private String nombre;
 	private int costoDeVisita;
 	private double tiempoDeVisita;
@@ -31,8 +31,24 @@ public class Atraccion {
 		return cupo;
 	}
 
-	public TipoAtraccion getTipoAtraccion() {
+	public TipoAtraccion getTipo() {
 		return tipoAtraccion;
+	}
+	
+	public void  restarCupo (int cupo) throws Exception {
+		if (this.cupo > cupo) {
+			this.cupo -= cupo;
+		} else {
+			throw new Exception ("No hay más cupo");
+		}
+	}
+	
+	@Override
+	public boolean hayCupo() {
+		if (this.cupo > 0) {
+			return true;
+		}
+		return false;
 	}
 
 }
