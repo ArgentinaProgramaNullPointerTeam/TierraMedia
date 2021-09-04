@@ -1,5 +1,15 @@
 package tierraMedia;
 
+/**
+ * Clase que modela a la atraccion Tiene un constructor con los
+ * 
+ * @param nombre, costoDeVisita, tiempoDeVisita, cupo y tipoAtraccion Tiene los
+ * getter para nombre, costoDeVisita, tiempoDeVisita, cupo y
+ * tipoAtraccion Tiene un metodo restarCupo, que resta 1 cupo
+ * cuando se acepta una compra y hayCupo que indica si la
+ * Atraccion tiene cupo o no.
+ */
+
 public class Atraccion extends Producto {
 	private String nombre;
 	private int costoDeVisita;
@@ -15,40 +25,42 @@ public class Atraccion extends Producto {
 		this.tipoAtraccion = tipoAtraccion;
 	}
 
+	@Override
 	public String getNombre() {
 		return nombre;
 	}
 
+	@Override
 	public int getCostoDeVisita() {
 		return costoDeVisita;
 	}
 
+	@Override
 	public double getTiempoDeVisita() {
 		return tiempoDeVisita;
 	}
 
+	@Override
 	public int getCupo() {
 		return cupo;
 	}
 
+	@Override
 	public TipoAtraccion getTipo() {
 		return tipoAtraccion;
 	}
-	
-	public void  restarCupo (int cupo) throws Exception {
-		if (this.cupo > cupo) {
-			this.cupo -= cupo;
+
+	public void restarCupo() throws Exception {
+		if (this.cupo > 0) {
+			this.cupo -= 1;
 		} else {
-			throw new Exception ("No hay más cupo");
+			throw new Exception("No hay más cupo");
 		}
 	}
-	
+
 	@Override
 	public boolean hayCupo() {
-		if (this.cupo > 0) {
-			return true;
-		}
-		return false;
+		return this.cupo > 0;
 	}
 
 }
