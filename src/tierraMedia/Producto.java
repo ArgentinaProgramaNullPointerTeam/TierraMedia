@@ -1,26 +1,21 @@
 package tierraMedia;
 
-public class Producto {
+
+//Clase abstracta y metodos abstractos
+//Hereda a las clases Atraccion y Promocion
+public abstract class Producto {
 	
 	//Devuelve si hay cupos
-	public boolean hayCupo() {
-		return true;
-	}
+	public abstract boolean hayCupo();
 	
-	//Devuelve el costo	
-	public int getCosto() {
-		return costo;
-	}
+	//Devuelve el costo de la visita
+	public abstract int getCostoDeVisita();
 	
-	//Devuelve el tipo
-	public String getTipo() {
-		return tipo;	
-	}
+	//Devuelve el tipo de atracción
+	public abstract TipoAtraccion getTipo();
 	
-	//Devuelve el tiempo
-	public int getTiempo() {
-		return tiempo;
-	}
+	//Devuelve el tiempo de la visita
+	public abstract double getTiempoDeVisita();
 	
 	
 	
