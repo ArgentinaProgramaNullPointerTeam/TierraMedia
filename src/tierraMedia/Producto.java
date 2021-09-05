@@ -2,8 +2,6 @@ package tierraMedia;
 
 public class Producto {
 	
-	//prueba modificacion
-	
 	//Devuelve si hay cupos
 	public boolean hayCupo() {
 		return true;
