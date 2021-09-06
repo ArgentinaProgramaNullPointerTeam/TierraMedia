@@ -1,4 +1,4 @@
-Nombre de usuario= Eowyn, Atraccion preferida= AVENTURA, Dinero disponible= 10.0, Tiempo disponible= 8.0 
-Nombre de usuario= Gandalf, Atraccion preferida= PAISAJE, Dinero disponible=100.0,Tiempo disponible= 5.0
-Nombre de usuario= Sam, Atraccion preferida= DEGUSTACION, Dinero disponible= 36.0,Tiempo disponible= 8.0
-Nombre de usuario= Galadriel, Atraccion preferida= PAISAJE, Dinero disponible= 120.0,Tiempo disponible= 2.0
+Eowyn-AVENTURA-10-8 
+Gandalf-PAISAJE-100-5 
+Sam-DEGUSTACION-36-8
+Galadriel-PAISAJE-120-2
