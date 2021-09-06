@@ -25,7 +25,6 @@ public class Atraccion extends Producto {
 		this.tipoAtraccion = tipoAtraccion;
 	}
 
-	@Override
 	public String getNombre() {
 		return nombre;
 	}
@@ -40,7 +39,6 @@ public class Atraccion extends Producto {
 		return tiempoDeVisita;
 	}
 
-	@Override
 	public int getCupo() {
 		return cupo;
 	}
