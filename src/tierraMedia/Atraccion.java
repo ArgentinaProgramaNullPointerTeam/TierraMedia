@@ -5,7 +5,7 @@ package tierraMedia;
  * costoDeVisita, tiempoDeVisita, cupo y tipoAtraccion Tiene los getter
  * para nombre, costoDeVisita, tiempoDeVisita y tipoAtraccion.
  * Tiene un metodo hayCupo que indica si la Atraccion tiene cupo o no
- * y un método restarCupo que resta 1 cupo cuando se acepta una compra y
+ * y un mï¿½todo restarCupo que resta 1 cupo cuando se acepta una compra y
  * hay cupo .
  */
 
@@ -53,6 +53,12 @@ public class Atraccion extends Producto {
 			this.cupo -= 1;
 		}
 
+	}
+
+	@Override
+	public String toString() {
+		return "Atraccion [nombre=" + nombre + ", costoDeVisita=" + costoDeVisita + ", tiempoDeVisita=" + tiempoDeVisita
+				+ ", cupo=" + cupo + ", tipoAtraccion=" + tipoAtraccion + "]";
 	}
 
 }

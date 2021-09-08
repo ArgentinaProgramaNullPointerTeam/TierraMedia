@@ -1,5 +1,1 @@
-//Tipo De Promocion-Nombre de Promocion-Cantidad de Atracciones-Atraccion1-Atraccion...-AtraccionN-Extra de Promocion(Descuento, Atraccion o Precio)
-3
-2-Paquete aventura-2-La Comarca-Moria- Descuento - 22.4 
-2-Paquete degustacion - 2 - Lothlórien - La Comarca - Precio -36
-2-Paquete paisajes - 3- Minas Tirith - el Abismo de Helm - Erebor - Atraccion - 10
+Pack Aventura-Descuento-Aventura-3-Moria-Mordor-BosqueNegro-0.2

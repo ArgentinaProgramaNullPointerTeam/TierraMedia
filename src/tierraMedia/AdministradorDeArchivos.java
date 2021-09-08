@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AdministradorDeArchivos  {
-
+	public static void main(String[] args) {		
+		
+	}
 	public static List<Usuario> leerUsuarios() {
 		File f = new File("./archivos/usuarios.txt"); //creo el archivo con la ruta
 		Scanner sc; //abro el scanner 
@@ -82,7 +84,55 @@ public static List<Atraccion> leerAtracciones() {
 	
 	return atracciones;
 }
+
+
+
+
+public static List<Promocion> leerPromociones(List<Atraccion> atracciones) {
+	File f = new File("./archivos/promociones.txt"); 
+	Scanner sc;  
+	List<Promocion> promociones = new ArrayList<Promocion>();
+	String[] line; 
+	
+	try {
+		sc = new Scanner(f); 
+	   		
+		while (sc.hasNext()) {
+			line = sc.nextLine().split("-"); // SEPARA LOS ATRIBUTOS - el split cada vez que encuentra un guion, devuelve un array 
+       
+			List<Atraccion> atraccionesEnPromo = new ArrayList<Atraccion>();
+			
+			for(int i=3; i<line.length-1; i++){
+				for(Atraccion atraccion: atracciones) {
+					if(atraccion.getNombre().equals(line[i])) {
+						atraccionesEnPromo.add(atraccion);
+					}
+				}
+			}
+			Promocion promocion = new Promocion(line[0], Integer.parseInt(line[3]), atraccionesEnPromo, line[1], line[5]);
+			promociones.add(promocion);
+			;
+			
+		}
+		
+		sc.close();
+		
+		
+		
+	
+	} catch (FileNotFoundException e) {
+		System.err.println(e.getMessage());
+	} catch (NumberFormatException e) {
+		System.err.println(e.getMessage());
+	}
+	
+	return promociones;
 }
+
+}
+
+
+
 
 	
 
