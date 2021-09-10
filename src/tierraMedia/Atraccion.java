@@ -1,11 +1,11 @@
 package tierraMedia;
 
 /**
- * Clase que modela a la atraccion Tiene un constructor con los @param nombre,
+ * Clase que modela  la atraccion. Tiene un constructor con los @param nombre,
  * costoDeVisita, tiempoDeVisita, cupo y tipoAtraccion Tiene los getter
  * para nombre, costoDeVisita, tiempoDeVisita y tipoAtraccion.
  * Tiene un metodo hayCupo que indica si la Atraccion tiene cupo o no
- * y un m�todo restarCupo que resta 1 cupo cuando se acepta una compra y
+ * y un metodo restarCupo que resta 1 cupo cuando se acepta una compra y
  * hay cupo .
  */
 
@@ -23,7 +23,8 @@ public class Atraccion extends Producto {
 		this.cupo = cupo;
 		this.tipoAtraccion = tipoAtraccion;
 	}
-
+	
+	@Override
 	public String getNombre() {
 		return nombre;
 	}
