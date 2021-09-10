@@ -17,6 +17,9 @@ public abstract class Producto {
 	//Devuelve el tiempo de la visita
 	public abstract double getTiempoDeVisita();
 	
+	//Devuelve el nombre
+	public abstract String getNombre();
+	
 	
 	
 	
