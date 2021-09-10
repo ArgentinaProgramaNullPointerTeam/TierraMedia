@@ -21,7 +21,8 @@ public class App {
 	
 		atracciones = AdministradorDeArchivos.leerAtracciones();
 		
-		promociones=AdministradorDeArchivos.leerPromociones(atracciones);
+  
+	    promociones=AdministradorDeArchivos.leerPromociones(atracciones);
 		System.out.println(promociones);
 		
 		productos.addAll (promociones);
@@ -29,5 +30,10 @@ public class App {
 		
 	
 		System.out.println(usuarios);
+		
+		for(Promocion cadaPromo: promociones) {
+			System.out.println(cadaPromo.costoTotalconPromo());
+		}
+		
 	}
 }
