@@ -3,23 +3,40 @@ package tierraMedia;
 import java.util.List;
 
 public class Promocion extends Producto {
-	private static String nombre;
-	private static int cantAtracciones;
-	private static List<Atraccion> atracciones;
-	private static String tipoPromocion;
-	private static String descuento;
-	
+	private String nombre;
+	private int cantAtracciones;
+	private List<Atraccion> atracciones;
+	private String tipoPromocion;
+	private String descuento;
+	private int costoConDescuento;
 
-
-
-
-	public  Promocion (String nombre, int cantAtracciones, List<Atraccion> atracciones, String tipoPromocion, String descuento) {
+	public Promocion(String nombre, int cantAtracciones, List<Atraccion> atracciones, String tipoPromocion,
+			String descuento) {
 		this.nombre = nombre;
 		this.cantAtracciones = cantAtracciones;
-		this.atracciones= atracciones;
+		this.atracciones = atracciones;
 		this.tipoPromocion = tipoPromocion;
-		this.descuento= descuento;	
+		this.descuento = descuento;
 	}
+
+	public int costoTotalconPromo() {
+		if (tipoPromocion.equals("Porcentual")) {
+			PromocionPorcentual promocionPorcentual = new PromocionPorcentual(nombre, cantAtracciones, atracciones,
+					tipoPromocion, descuento);
+			costoConDescuento = promocionPorcentual.costoConPorcentajeDescontado(atracciones, descuento);
+		} else if (tipoPromocion.equals("Absoluta")) {
+			PromocionAbsoluta promocionAbsoluta = new PromocionAbsoluta(nombre, cantAtracciones, atracciones,
+					tipoPromocion, descuento);
+			costoConDescuento = promocionAbsoluta.costoConValorActualizado(atracciones, descuento);
+		} else if (tipoPromocion.equals("AXB")) {
+			PromocionAXB promocionAXB = new PromocionAXB(nombre, cantAtracciones, atracciones,
+					tipoPromocion, descuento);
+			costoConDescuento = promocionAXB.costoConAtraccionDescontada(atracciones);
+		}
+	
+		return costoConDescuento;
+	} 
+	
 
 	@Override
 	public String toString() {
@@ -38,10 +55,8 @@ public class Promocion extends Producto {
 		return 0;
 	}
 
-	@Override
-	public TipoAtraccion getTipo() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getTipoPromocion() {
+		return tipoPromocion;
 	}
 
 	@Override
@@ -50,11 +65,10 @@ public class Promocion extends Producto {
 		return 0;
 	}
 
-
-	
-	 
-	
+	@Override
+	public TipoAtraccion getTipo() {
+		// TODO Auto-generated method stub
+		return null;
 	}
-		
-	
-	
+
+}
