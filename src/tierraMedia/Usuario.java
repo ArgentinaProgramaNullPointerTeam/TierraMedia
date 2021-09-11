@@ -32,6 +32,14 @@ public class Usuario {
 		return atraccionPreferida;
 	}
 
+	public double getDineroDisponible() {
+		return dineroDisponible;
+	}
+
+	public double getTiempoDisponible() {
+		return tiempoDisponible;
+	}
+
 	public List<Producto> getListaCompra() {
 		return listaCompra;
 	}
