@@ -1,6 +1,6 @@
 package tierraMedia;
 
-//Clase abstracta y métodos abstractos
+//Clase abstracta y mÃ©todos abstractos
 //Hereda a las clases Atraccion y Promocion
 public abstract class Producto {
 	
@@ -11,7 +11,7 @@ public abstract class Producto {
 	//Devuelve el costo	de la visita
 	public abstract int getCostoDeVisita();
 	
-	//Devuelve el tipo de atracción
+	//Devuelve el tipo de atracciÃ³n
 	public abstract TipoAtraccion getTipo();
 	
 	//Devuelve el tiempo de la visita

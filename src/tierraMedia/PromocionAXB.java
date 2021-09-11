@@ -1,3 +1,4 @@
+
 package tierraMedia;
 
 import java.util.List;
@@ -29,7 +30,4 @@ public class PromocionAXB extends Promocion{
 	
 	
 }
-	
-
-	
 	

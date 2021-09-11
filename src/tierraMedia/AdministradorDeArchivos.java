@@ -2,7 +2,6 @@ package tierraMedia;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -129,5 +128,26 @@ public class AdministradorDeArchivos {
 
 		return promociones;
 	}
+	public static void guardarArchivo(ArrayList<String> datosAGuardar, String ruta) {
+		PrintWriter salida = null;
 
+		try {
+			salida = new PrintWriter(new FileWriter("archivos/" + ruta + ".txt"));
+
+			for (String dato : datosAGuardar) {
+				salida.print(dato);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (salida != null) {
+					salida.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
 }

@@ -6,7 +6,7 @@ public class Promocion extends Producto {
 	private String nombre;
 	private int cantAtracciones;
 	private List<Atraccion> atracciones;
-	private String tipoPromocion;
+	private String tipoPromocion;  
 	private String descuento;
 	private int costoConDescuento;
 
@@ -67,6 +67,12 @@ public class Promocion extends Producto {
 
 	@Override
 	public TipoAtraccion getTipo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getNombre() {
 		// TODO Auto-generated method stub
 		return null;
 	}

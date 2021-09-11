@@ -20,5 +20,3 @@ public class PromocionAbsoluta extends Promocion{
 		return costoTotal;
 	}
 }
-	
-

@@ -35,5 +35,8 @@ public class App {
 			System.out.println(cadaPromo.costoTotalconPromo());
 		}
 		
+		ArrayList <String> datos = new ArrayList<String>();
+		datos.add("algo");
+		AdministradorDeArchivos.guardarArchivo(datos, "prueba");
 	}
 }

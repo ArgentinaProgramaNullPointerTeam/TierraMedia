@@ -7,7 +7,7 @@ public class ComparadorDeProductos implements Comparator<Producto> {
 	private TipoAtraccion atraccionPreferida;
 
 	public ComparadorDeProductos(TipoAtraccion atraccionPreferida) {
-		// Constructor que recibe por parametro la atracción preferida del usuario
+		// Constructor que recibe por parametro la atracciÃ³n preferida del usuario
 		this.atraccionPreferida = atraccionPreferida;
 	}
 
