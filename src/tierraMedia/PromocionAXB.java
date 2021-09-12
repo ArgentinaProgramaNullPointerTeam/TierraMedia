@@ -4,28 +4,27 @@ package tierraMedia;
 import java.util.List;
 
 public class PromocionAXB extends Promocion{
+	private String nombre;
+	private int cantAtracciones;
+	private  List<Atraccion> atracciones;
+	private  String tipoPromocion;
+	private  String descuento;
+	private int costoDeVisita;
 	
 	public PromocionAXB(String nombre, int cantAtracciones, List<Atraccion> atracciones, String tipoPromocion,
 			String descuento) {
 		super(nombre, cantAtracciones, atracciones, tipoPromocion, descuento);
 	}
 	
-	private String nombre;
-	private int cantAtracciones;
-	private  List<Atraccion> atracciones;
-	private  String tipoPromocion;
-	private  String descuento;
-	
 
-
-	public int costoConAtraccionDescontada(List<Atraccion> atracciones) {
-		int costoTotal=0;
+	public int costoDeVisita(List<Atraccion> atracciones) {
+	    costoDeVisita=0;
 		Atraccion atraccionGratuita=atracciones.get(atracciones.size() - 1);
 		for(Atraccion cadaAtraccion: atracciones) {
-			costoTotal= costoTotal + cadaAtraccion.getCostoDeVisita();
+			costoDeVisita= costoDeVisita + cadaAtraccion.getCostoDeVisita();
 		}
-		costoTotal=costoTotal-atraccionGratuita.getCostoDeVisita();   
-		return costoTotal;
+		costoDeVisita=costoDeVisita-atraccionGratuita.getCostoDeVisita();   
+		return costoDeVisita;
 	}
 	
 	

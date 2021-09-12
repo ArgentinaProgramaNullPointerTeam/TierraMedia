@@ -6,9 +6,9 @@ public class Promocion extends Producto {
 	private String nombre;
 	private int cantAtracciones;
 	private List<Atraccion> atracciones;
-	private String tipoPromocion;  
+	private String tipoPromocion;
 	private String descuento;
-	private int costoConDescuento;
+	private int costoDeVisita;
 
 	public Promocion(String nombre, int cantAtracciones, List<Atraccion> atracciones, String tipoPromocion,
 			String descuento) {
@@ -19,24 +19,6 @@ public class Promocion extends Producto {
 		this.descuento = descuento;
 	}
 
-	public int costoTotalconPromo() {
-		if (tipoPromocion.equals("Porcentual")) {
-			PromocionPorcentual promocionPorcentual = new PromocionPorcentual(nombre, cantAtracciones, atracciones,
-					tipoPromocion, descuento);
-			costoConDescuento = promocionPorcentual.costoConPorcentajeDescontado(atracciones, descuento);
-		} else if (tipoPromocion.equals("Absoluta")) {
-			PromocionAbsoluta promocionAbsoluta = new PromocionAbsoluta(nombre, cantAtracciones, atracciones,
-					tipoPromocion, descuento);
-			costoConDescuento = promocionAbsoluta.costoConValorActualizado(atracciones, descuento);
-		} else if (tipoPromocion.equals("AXB")) {
-			PromocionAXB promocionAXB = new PromocionAXB(nombre, cantAtracciones, atracciones,
-					tipoPromocion, descuento);
-			costoConDescuento = promocionAXB.costoConAtraccionDescontada(atracciones);
-		}
-	
-		return costoConDescuento;
-	} 
-	
 
 	@Override
 	public String toString() {
@@ -51,8 +33,21 @@ public class Promocion extends Producto {
 
 	@Override
 	public int getCostoDeVisita() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (tipoPromocion.equals("Porcentual")) {
+			PromocionPorcentual promocionPorcentual = new PromocionPorcentual(nombre, cantAtracciones, atracciones,
+					tipoPromocion, descuento);
+			costoDeVisita = promocionPorcentual.getCostoDeVisita(atracciones, descuento);
+		} else if (tipoPromocion.equals("Absoluta")) {
+			PromocionAbsoluta promocionAbsoluta = new PromocionAbsoluta(nombre, cantAtracciones, atracciones,
+					tipoPromocion, descuento);
+			costoDeVisita = promocionAbsoluta.getCostoDeVisita(atracciones, descuento);
+		} else if (tipoPromocion.equals("AXB")) {
+			PromocionAXB promocionAXB = new PromocionAXB(nombre, cantAtracciones, atracciones, tipoPromocion,
+					descuento);
+			costoDeVisita = promocionAXB.getCostoDeVisita(atracciones);
+		}
+
+		return costoDeVisita;
 	}
 
 	public String getTipoPromocion() {

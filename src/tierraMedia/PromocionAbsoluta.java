@@ -8,6 +8,7 @@ public class PromocionAbsoluta extends Promocion{
 	private static List<Atraccion> atracciones;
 	private static String tipoPromocion;
 	private static Double descuento;
+	private int costoDeVisita;
 	
 	public PromocionAbsoluta(String nombre, int cantAtracciones, List<Atraccion> atracciones, String tipoPromocion,
 			String descuento) {
@@ -15,8 +16,8 @@ public class PromocionAbsoluta extends Promocion{
 		
 	}
 
-	public int costoConValorActualizado(List<Atraccion> atracciones, String descuento) {
-	    int costoTotal=Integer.parseInt(descuento);
-		return costoTotal;
+	public int getCostoDeVisita(List<Atraccion> atracciones, String descuento) {
+	    int costoDeVisita=Integer.parseInt(descuento);
+		return costoDeVisita;
 	}
 }
