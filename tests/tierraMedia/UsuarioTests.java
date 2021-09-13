@@ -30,12 +30,12 @@ public class UsuarioTests {
 		Producto sugerenciaAceptada = new Atraccion("Rivendel", 20, 1.5, 2, TipoAtraccion.AVENTURA);
 		usuario.guardarSugerencia(sugerenciaAceptada);
 		
-		double dineroDispObtenido = usuario.getDineroDisponible();
-		double dineroDispEsperado = 30;
+		int dineroDispObtenido = usuario.getDineroDisponible();
+		int dineroDispEsperado = 30;
 		double tiempoDispObtenido = usuario.getTiempoDisponible();
 		double tiempoDispEsperado = 1.5;
 		
-		assertEquals(dineroDispEsperado, dineroDispObtenido, 0);
+		assertEquals(dineroDispEsperado, dineroDispObtenido);
 		assertEquals(tiempoDispEsperado, tiempoDispObtenido,0);
 	}
 	@Test
