@@ -69,4 +69,8 @@ public class Usuario {
 				+ dineroDisponible + ", Tiempo disponible= " + tiempoDisponible;
 	}
 
+	public String getNombreYAtraccionPreferida() {
+		return "Nombre de usuario= " + nombre+ ", Atraccion preferida= " + atraccionPreferida;
+	}
+
 }

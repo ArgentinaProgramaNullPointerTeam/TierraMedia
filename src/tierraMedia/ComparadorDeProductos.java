@@ -14,18 +14,21 @@ public class ComparadorDeProductos implements Comparator<Producto> {
 	@Override
 	public int compare(Producto p1, Producto p2) {
 		/*
-		 * Metodo que ordena segun prioridades: 1 Coincida con la atraccion preferida
-		 * del usuario /////ver costo y tiempo (o en App) 2 Promocion por sobre
-		 * atraccion 3 Mayor costo 4 Mayor tiempo
+		 * Metodo que ordena segun prioridades: 
+		 * 1 Coincida con la atraccion preferida
+		 * del usuario 
+		 * 2 Promocion por sobre atraccion 
+		 * 3 Mayor costo 
+		 * 4 Mayor tiempo
 		 */
 		if (this.atraccionPreferida == p1.getTipo() && this.atraccionPreferida != p2.getTipo())
 			return -1;
 		else if (this.atraccionPreferida != p1.getTipo() && this.atraccionPreferida == p2.getTipo())
 			return 1;
 		else {
-			if (p1.getClass().getName().equals("Promocion"))
+			if (p1 instanceof Promocion && p2 instanceof Atraccion)
 				return -1;
-			else if (p1.getClass().getName().equals("Atraccion"))
+			else if (p1 instanceof Atraccion && p2 instanceof Promocion)
 				return 1;
 			else {
 				if (p1.getCostoDeVisita() > p2.getCostoDeVisita())
@@ -33,7 +36,7 @@ public class ComparadorDeProductos implements Comparator<Producto> {
 				else if (p1.getCostoDeVisita() < p2.getCostoDeVisita())
 					return 1;
 				else {
-					return Double.compare(p1.getTiempoDeVisita(), p2.getTiempoDeVisita());
+					return -1*Double.compare(p1.getTiempoDeVisita(), p2.getTiempoDeVisita());
 				}
 			}
 

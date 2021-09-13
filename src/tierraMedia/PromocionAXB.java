@@ -17,7 +17,7 @@ public class PromocionAXB extends Promocion{
 	}
 	
 
-	public int costoDeVisita(List<Atraccion> atracciones) {
+	public int getCostoDeVisita(List<Atraccion> atracciones) {
 	    costoDeVisita=0;
 		Atraccion atraccionGratuita=atracciones.get(atracciones.size() - 1);
 		for(Atraccion cadaAtraccion: atracciones) {
