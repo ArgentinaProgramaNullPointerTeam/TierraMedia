@@ -72,4 +72,10 @@ public class Atraccion extends Producto {
 				+ ", cupo=" + cupo + ", tipoAtraccion=" + tipoAtraccion + "]";
 	}
 
+	@Override
+	public String  ofertas() {
+		return "Nombre de Atracción =" + nombre + "Costo de visita =" + costoDeVisita
+				+ "Tiempo de visita = " + tiempoDeVisita ;
+	}
+
 }
