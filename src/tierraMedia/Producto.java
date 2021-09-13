@@ -23,6 +23,9 @@ public abstract class Producto {
 	//Resta cupos
 	public abstract void restarCupo();
 	
+	//Devuelve si es un producto o no lo es
+	public abstract boolean esPromocion();
+	
 	
 	
 	
