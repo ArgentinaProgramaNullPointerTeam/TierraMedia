@@ -49,6 +49,7 @@ public class Atraccion extends Producto {
 		return this.cupo > 0;
 	}
 
+	@Override
 	public void restarCupo() {
 		if (this.cupo > 0) {
 			this.cupo -= 1;
