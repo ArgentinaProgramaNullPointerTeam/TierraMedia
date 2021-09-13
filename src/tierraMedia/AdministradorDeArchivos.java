@@ -24,7 +24,7 @@ public class AdministradorDeArchivos {
 													// devuelve un array
 				usuarios.add(new Usuario(line[0], // nombre de usuario nose parsea
 						TipoAtraccion.valueOf(line[1]), // parseo el enum tipo de atraccion para q lo pase a string
-						Double.parseDouble(line[2]), // presupuesto
+						Integer.parseInt(line[2]), // presupuesto
 						Double.parseDouble(line[3])) // tiempo
 				);
 

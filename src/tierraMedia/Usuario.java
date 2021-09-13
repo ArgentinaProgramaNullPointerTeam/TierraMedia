@@ -17,13 +17,13 @@ import java.util.List;
 public class Usuario {
 	private String nombre;
 	private TipoAtraccion atraccionPreferida;
-	private double dineroDisponible;
+	private int dineroDisponible;
 	private double tiempoDisponible;
 	private List<Producto> listaCompra = new ArrayList<Producto>();
-	private double costoDeCompras;
+	private int costoDeCompras;
 	private double duracionDeCompras;
 
-	public Usuario(String nombre, TipoAtraccion atraccionPreferida, double dineroDisponible, double tiempoDisponible) {
+	public Usuario(String nombre, TipoAtraccion atraccionPreferida, int dineroDisponible, double tiempoDisponible) {
 		this.nombre = nombre;
 		this.atraccionPreferida = atraccionPreferida;
 		this.dineroDisponible = dineroDisponible;
@@ -38,7 +38,7 @@ public class Usuario {
 		return atraccionPreferida;
 	}
 
-	public double getDineroDisponible() {
+	public int getDineroDisponible() {
 		return dineroDisponible;
 	}
 
@@ -50,7 +50,7 @@ public class Usuario {
 		return listaCompra;
 	}
 	
-	public double getCostoDeCompras() {
+	public int getCostoDeCompras() {
 		for (Producto cadaProducto : listaCompra) {
 			this.costoDeCompras = cadaProducto.getCostoDeVisita();
 		}
@@ -70,7 +70,7 @@ public class Usuario {
 		listaCompra.add(producto);
 	}
 
-	public void restarDinero(double dinero) {
+	public void restarDinero(int dinero) {
 		this.dineroDisponible -= dinero;
 	}
 
