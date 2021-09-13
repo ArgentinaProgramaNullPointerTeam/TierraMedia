@@ -84,4 +84,10 @@ public class Promocion extends Producto {
 		
 	}
 
+
+	@Override
+	public boolean esPromocion() {
+		return true;
+	}
+
 }
