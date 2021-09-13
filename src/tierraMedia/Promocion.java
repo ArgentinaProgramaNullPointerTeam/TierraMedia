@@ -10,6 +10,7 @@ public class Promocion extends Producto {
 	private String descuento;
 	private int costoDeVisita;
 	private TipoAtraccion tipoDePromocion;
+	private double tiempoDeVisita;
 
 	public Promocion(String nombre, int cantAtracciones, List<Atraccion> atracciones, String tipoPromocion,
 			String descuento) {
@@ -58,8 +59,10 @@ public class Promocion extends Producto {
 
 	@Override
 	public double getTiempoDeVisita() {
-		// TODO Auto-generated method stub
-		return 0;
+		for(Atraccion cadaAtraccion:atracciones) {
+			tiempoDeVisita+= cadaAtraccion.getTiempoDeVisita();
+		}
+		return tiempoDeVisita;
 	}
 
 	@Override
@@ -69,8 +72,16 @@ public class Promocion extends Producto {
 
 	@Override
 	public String getNombre() {
-		// TODO Auto-generated method stub
-		return null;
+		return nombre;
+	}
+
+
+	@Override
+	public void restarCupo() {
+		for(Atraccion cadaAtraccion:atracciones) {
+			cadaAtraccion.restarCupo();
+		}
+		
 	}
 
 }
