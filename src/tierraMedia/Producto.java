@@ -1,6 +1,6 @@
 package tierraMedia;
 
-//Clase abstracta y mÃ©todos abstractos
+//Clase abstracta y métodos abstractos
 //Hereda a las clases Atraccion y Promocion
 public abstract class Producto {
 	
@@ -25,6 +25,9 @@ public abstract class Producto {
 	
 	//Devuelve si es un producto o no lo es
 	public abstract boolean esPromocion();
+	
+	//Devuelve String concatenado
+	public abstract String ofertas();
 	
 	
 	
