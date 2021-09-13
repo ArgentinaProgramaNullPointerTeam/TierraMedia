@@ -5,14 +5,14 @@ import java.util.List;
 
 /**
  * Clase que modela al usuario Tiene un constructor con los
- * @param nombre, atraccionPreferida, dineroDisponible, tiempoDisponible 
- * Tiene los getter para atraccionPreferida y listaCompra
- * Tiene un metodo guardarSugerencia que recibe un producto 
- * y lo guarda en listaCompra 
- * Tiene un metodo restarTiempo y restarDinero
- * que resta el tiempo y el dinero respectivamente.
- * Tiene un metodo puedeComprar que @return un boolean 
- * si tiene tiempo y dinero disponible
+ * @param nombre, atraccionPreferida, dineroDisponible, tiempoDisponible Tiene
+ * los getter para atraccionPreferida y listaCompra Tiene un
+ * metodo guardarSugerencia que recibe un producto y lo guarda en
+ * listaCompra Tiene un metodo restarTiempo y restarDinero que
+ * resta el tiempo y el dinero respectivamente. Tiene un metodo
+ * puedeComprar que @return un boolean si tiene tiempo y dinero
+ * disponible Tiene dos metodos que @return el costo y la
+ * duracion de las compras del usuario respectivamente.
  */
 public class Usuario {
 	private String nombre;
@@ -20,12 +20,18 @@ public class Usuario {
 	private double dineroDisponible;
 	private double tiempoDisponible;
 	private List<Producto> listaCompra = new ArrayList<Producto>();
+	private double costoDeCompras;
+	private double duracionDeCompras;
 
 	public Usuario(String nombre, TipoAtraccion atraccionPreferida, double dineroDisponible, double tiempoDisponible) {
 		this.nombre = nombre;
 		this.atraccionPreferida = atraccionPreferida;
 		this.dineroDisponible = dineroDisponible;
 		this.tiempoDisponible = tiempoDisponible;
+	}
+	
+	public String getNombre() {
+		return this.nombre;
 	}
 
 	public TipoAtraccion getAtraccionPreferida() {
@@ -43,7 +49,21 @@ public class Usuario {
 	public List<Producto> getListaCompra() {
 		return listaCompra;
 	}
+	
+	public double getCostoDeCompras() {
+		for (Producto cadaProducto : listaCompra) {
+			this.costoDeCompras = cadaProducto.getCostoDeVisita();
+		}
+		return this.costoDeCompras;
+	}
 
+	public double getDuracionDeCompras() {
+		for (Producto cadaProducto : listaCompra) {
+			this.duracionDeCompras = cadaProducto.getTiempoDeVisita();
+		}
+		return this.duracionDeCompras;
+	}
+	
 	public void guardarSugerencia(Producto producto) {
 		this.restarDinero(producto.getCostoDeVisita());
 		this.restarTiempo(producto.getTiempoDeVisita());
@@ -67,10 +87,6 @@ public class Usuario {
 	public String toString() {
 		return "Nombre de usuario= " + nombre + ", Atraccion preferida= " + atraccionPreferida + ", Dinero disponible= "
 				+ dineroDisponible + ", Tiempo disponible= " + tiempoDisponible;
-	}
-
-	public String getNombreYAtraccionPreferida() {
-		return "Nombre de usuario= " + nombre+ ", Atraccion preferida= " + atraccionPreferida;
 	}
 
 }

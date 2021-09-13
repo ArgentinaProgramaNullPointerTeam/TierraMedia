@@ -35,7 +35,7 @@ public class App {
 			Collections.sort(productos, new ComparadorDeProductos(cadaUsuario.getAtraccionPreferida()));
 			System.out.println("despues de ordenar" + productos);
 			
-			System.out.println(cadaUsuario.getNombreYAtraccionPreferida() +"--" + (productos.get(0).getNombre()));
+			System.out.println(cadaUsuario.getNombre() +"--" + (productos.get(0).getNombre()));
 		
 		}
 
