@@ -55,6 +55,11 @@ public class Atraccion extends Producto {
 		}
 
 	}
+	
+	@Override
+	public boolean esPromocion () {
+		return false;
+	}
 
 	@Override
 	public String toString() {
