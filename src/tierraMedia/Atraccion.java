@@ -61,6 +61,10 @@ public class Atraccion extends Producto {
 	public boolean esPromocion () {
 		return false;
 	}
+	
+	public int getCupo () {
+		return this.cupo;
+	}
 
 	@Override
 	public String toString() {
