@@ -52,14 +52,14 @@ public class Usuario {
 	
 	public int getMonedasGastadas() {
 		for (Producto cadaProducto : listaCompra) {
-			this.monedasGastadas = cadaProducto.getCostoDeVisita();
+			this.monedasGastadas += cadaProducto.getCostoDeVisita();
 		}
 		return this.monedasGastadas;
 	}
 
 	public double getTiempoGastado() {
 		for (Producto cadaProducto : listaCompra) {
-			this.tiempoGastado = cadaProducto.getTiempoDeVisita();
+			this.tiempoGastado += cadaProducto.getTiempoDeVisita();
 		}
 		return this.tiempoGastado;
 	}

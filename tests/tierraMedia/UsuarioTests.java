@@ -53,4 +53,15 @@ public class UsuarioTests {
 		Producto sugerencia = new Atraccion("Isengard", 5, 4, 2, TipoAtraccion.AVENTURA);
 		assertFalse(usuario.puedeComprar(sugerencia));
 	}
+	@Test
+	public void TiempoYMonedas() {
+		Producto sugerencia = new Atraccion("Edoras", 5, 0.5, 2, TipoAtraccion.AVENTURA);
+		Producto sugerencia2 = new Atraccion("Isengard", 5, 1, 2, TipoAtraccion.AVENTURA);
+		Producto sugerencia3 = new Atraccion("Rivendel", 10, 1, 2, TipoAtraccion.AVENTURA);
+		usuario.guardarSugerencia(sugerencia);
+		usuario.guardarSugerencia(sugerencia2);
+		usuario.guardarSugerencia(sugerencia3);
+		assertEquals(20, usuario.getMonedasGastadas());
+		assertEquals(2.5, usuario.getTiempoGastado(),0);
+	}
 }
