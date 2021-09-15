@@ -42,7 +42,7 @@ public class Atraccion extends Producto {
 	}
 
 	@Override
-	public TipoAtraccion getTipo() {
+	public TipoAtraccion getTipoAtracciones() {
 		return tipoAtraccion;
 	}
 
