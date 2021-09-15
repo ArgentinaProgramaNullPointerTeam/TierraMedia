@@ -3,7 +3,7 @@ package tierraMedia;
 
 import java.util.List;
 
-public class PromocionAXB extends Promocion{
+public class PromocionAXB extends Promocion {
 	private String nombre;
 	private int cantAtracciones;
 	private List<Atraccion> atracciones;
@@ -20,15 +20,15 @@ public class PromocionAXB extends Promocion{
 		this.tipoPromocion = tipoPromocion;
 		this.descuento = descuento;
 	}
-	
+
 	@Override
 	public String getNombre() {
 		return this.nombre;
 	}
-	
+
 	@Override
 	public String getTipoPromocion() {
-        return this.tipoPromocion;
+		return this.tipoPromocion;
 	}
 
 	@Override
@@ -83,33 +83,29 @@ public class PromocionAXB extends Promocion{
 	}
 
 	@Override
-	public boolean fueComprado(List<Producto> listaCompra) {
-		boolean contiene = false;
-		for (Atraccion cadaAtraccion : this.atracciones) {
-			if (listaCompra.contains(cadaAtraccion)) {
-				contiene = true;
-				break;
-			}
-			;
-		}
-		return contiene;
-	}
-	
-	@Override
 	public int getCostoDeVisita() {
-	    costoDeVisita=0;
-		Atraccion atraccionGratuita=this.atracciones.get(atracciones.size() - 1);
-		for(Atraccion cadaAtraccion: this.atracciones) {
-			costoDeVisita= costoDeVisita + cadaAtraccion.getCostoDeVisita();
+		costoDeVisita = 0;
+		Atraccion atraccionGratuita = this.atracciones.get(atracciones.size() - 1);
+		for (Atraccion cadaAtraccion : this.atracciones) {
+			costoDeVisita = costoDeVisita + cadaAtraccion.getCostoDeVisita();
 		}
-		costoDeVisita=costoDeVisita-atraccionGratuita.getCostoDeVisita();   
+		costoDeVisita = costoDeVisita - atraccionGratuita.getCostoDeVisita();
 		return costoDeVisita;
 	}
-	
-	//Retorna el nombre de la atracción gratuita.
+
+	// Retorna el nombre de la atracción gratuita.
 	public String getDescuento() {
 		return this.descuento;
 	}
+
+	@Override
+	public boolean esOContiene(Producto otro) {
+		for (Atraccion a : this.atracciones) {
+			  if(otro.esOContiene(a)) return true;
+		}
+		return false;
+	}
+
+	
 	
 }
-	

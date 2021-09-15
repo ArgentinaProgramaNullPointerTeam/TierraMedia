@@ -25,10 +25,10 @@ public class PromocionPorcentual extends Promocion {
 	public String getNombre() {
 		return this.nombre;
 	}
-	
+
 	@Override
 	public String getTipoPromocion() {
-        return this.tipoPromocion;
+		return this.tipoPromocion;
 	}
 
 	@Override
@@ -83,19 +83,6 @@ public class PromocionPorcentual extends Promocion {
 	}
 
 	@Override
-	public boolean fueComprado(List<Producto> listaCompra) {
-		boolean contiene = false;
-		for (Atraccion cadaAtraccion : this.atracciones) {
-			if (listaCompra.contains(cadaAtraccion)) {
-				contiene = true;
-				break;
-			}
-			;
-		}
-		return contiene;
-	}
-
-	@Override
 	public int getCostoDeVisita() {
 		for (Atraccion atraccion : this.atracciones) {
 			costoDeVisita = costoDeVisita + atraccion.getCostoDeVisita();
@@ -103,4 +90,14 @@ public class PromocionPorcentual extends Promocion {
 		costoDeVisita = (int) (costoDeVisita - (costoDeVisita * descuento));
 		return costoDeVisita;
 	}
+
+	@Override
+	public boolean esOContiene(Producto otro) {
+		for (Atraccion a : this.atracciones) {
+			  if(otro.esOContiene(a)) return true;
+		}
+		return false;
+	}
+	
+	
 }

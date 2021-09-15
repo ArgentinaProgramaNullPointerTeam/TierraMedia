@@ -79,21 +79,20 @@ public class PromocionAbsoluta extends Promocion{
 		return "Promoción disponible para adquirir: " + this.nombre + ofertaAtracciones;
 	}
 
-	@Override
-	public boolean fueComprado(List<Producto> listaCompra) {
-		boolean contiene = false;
-		for (Atraccion cadaAtraccion : this.atracciones) {
-			if (listaCompra.contains(cadaAtraccion)) {
-				contiene = true;
-				break;
-			}
-			;
-		}
-		return contiene;
-	}
 
 	@Override
 	public int getCostoDeVisita() {
 		return this.descuento;
 	}
+
+
+
+	@Override
+	public boolean esOContiene(Producto otro) {
+		for (Atraccion a : this.atracciones) {
+			  if(otro.esOContiene(a)) return true;
+		}
+		return false;
+	}
+	
 }
