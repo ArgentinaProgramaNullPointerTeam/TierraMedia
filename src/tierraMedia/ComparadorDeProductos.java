@@ -21,9 +21,9 @@ public class ComparadorDeProductos implements Comparator<Producto> {
 		 * 3 Mayor costo 
 		 * 4 Mayor tiempo
 		 */
-		if (this.atraccionPreferida == p1.getTipo() && this.atraccionPreferida != p2.getTipo())
+		if (this.atraccionPreferida == p1.getTipoAtracciones() && this.atraccionPreferida != p2.getTipoAtracciones())
 			return -1;
-		else if (this.atraccionPreferida != p1.getTipo() && this.atraccionPreferida == p2.getTipo())
+		else if (this.atraccionPreferida != p1.getTipoAtracciones() && this.atraccionPreferida == p2.getTipoAtracciones())
 			return 1;
 		else {
 			if (p1.esPromocion()==true && p2.esPromocion()== false)
