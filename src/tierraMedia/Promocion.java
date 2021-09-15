@@ -1,7 +1,5 @@
 package tierraMedia;
 
-import java.util.List;
-
 public abstract class Promocion extends Producto {
 	@Override
 	public abstract boolean hayCupo(); 
@@ -25,15 +23,12 @@ public abstract class Promocion extends Producto {
 	public abstract boolean esPromocion();
 	
 	@Override
-	public abstract boolean fueComprado(List<Producto> listaCompra);
-	
-	@Override
 	public abstract String ofertas();
 	
 	@Override
 	public abstract String toString();
-
-
+	
+	
 	public abstract String getTipoPromocion(); 
 
 	
