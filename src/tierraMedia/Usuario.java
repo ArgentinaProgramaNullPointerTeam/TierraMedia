@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clase que modela al usuario Tiene un constructor con los
- * parametros nombre, atraccionPreferida, dineroDisponible, tiempoDisponible Tiene
- * los getter para atraccionPreferida y listaCompra Tiene un
- * metodo guardarSugerencia que recibe un producto y lo guarda en
- * listaCompra Tiene un metodo restarTiempo y restarDinero que
- * resta el tiempo y el dinero respectivamente. Tiene un metodo
- * puedeComprar que retorna un boolean si tiene tiempo y dinero
- * disponible. Tiene dos metodos que retorna las monedas gastadas y el tiempo
- * gastado en las compras que realizo el usuario respectivamente.
+ * Clase que modela al usuario Tiene un constructor con los parametros nombre,
+ * atraccionPreferida, dineroDisponible, tiempoDisponible Tiene los getter para
+ * atraccionPreferida y listaCompra Tiene un metodo guardarSugerencia que recibe
+ * un producto y lo guarda en listaCompra Tiene un metodo restarTiempo y
+ * restarDinero que resta el tiempo y el dinero respectivamente. Tiene un metodo
+ * puedeComprar que retorna un boolean si tiene tiempo y dinero disponible.
+ * Tiene dos metodos que retorna las monedas gastadas y el tiempo gastado en las
+ * compras que realizo el usuario respectivamente.
  */
 public class Usuario {
 	private String nombre;
@@ -29,7 +28,7 @@ public class Usuario {
 		this.dineroDisponible = dineroDisponible;
 		this.tiempoDisponible = tiempoDisponible;
 	}
-	
+
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -49,7 +48,7 @@ public class Usuario {
 	public List<Producto> getListaCompra() {
 		return listaCompra;
 	}
-	
+
 	public int getMonedasGastadas() {
 		for (Producto cadaProducto : listaCompra) {
 			this.monedasGastadas += cadaProducto.getCostoDeVisita();
@@ -63,7 +62,7 @@ public class Usuario {
 		}
 		return this.tiempoGastado;
 	}
-	
+
 	public void guardarSugerencia(Producto producto) {
 		this.restarDinero(producto.getCostoDeVisita());
 		this.restarTiempo(producto.getTiempoDeVisita());
@@ -79,9 +78,13 @@ public class Usuario {
 	}
 
 	public boolean puedeComprar(Producto producto) {
+
 		return this.dineroDisponible >= producto.getCostoDeVisita()
-				&& this.tiempoDisponible >= producto.getTiempoDeVisita();
+				&& this.tiempoDisponible >= producto.getTiempoDeVisita() 
+				&& !producto.fueComprado(this.listaCompra);
 	}
+
+	
 
 	@Override
 	public String toString() {
