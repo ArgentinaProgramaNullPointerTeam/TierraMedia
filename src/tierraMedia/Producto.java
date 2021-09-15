@@ -1,7 +1,5 @@
 package tierraMedia;
 
-import java.util.List;
-
 //Clase abstracta y métodos abstractos
 //Hereda a las clases Atraccion y Promocion
 public abstract class Producto {
@@ -31,11 +29,8 @@ public abstract class Producto {
 	//Devuelve String concatenado
 	public abstract String ofertas();
 	
-	public abstract boolean fueComprado(List<Producto> listaCompra);
+	public abstract boolean esOContiene(Producto otro);
+	
 
-	
-	
-	
-	
 
 }
