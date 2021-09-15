@@ -76,8 +76,8 @@ public class Atraccion extends Producto {
 
 	@Override
 	public String  ofertas() {
-		return "Nombre de Atracción =" + nombre + "Costo de visita =" + costoDeVisita
-				+ "Tiempo de visita = " + tiempoDeVisita ;
+		return "Atracción disponible para adquirir: " + nombre + ", su Costo es: " + costoDeVisita
+				+ " monedas, y le demandará un Tiempo de: " + tiempoDeVisita + " horas." ;
 	}
 
 	@Override
