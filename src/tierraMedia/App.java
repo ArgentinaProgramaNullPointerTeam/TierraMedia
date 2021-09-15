@@ -41,9 +41,16 @@ public class App {
 					System.out.println("Si desea adquirir este producto ingrese SI,"
 							+ " de lo contrario ingrese NO");
 				    entradaUsuario= entradaDeUsuario.nextLine();
+				    if((!entradaUsuario.contains("NO"))||(!entradaUsuario.contains("SI"))){
+				    	System.out.println("Si desea adquirir este producto ingrese SI,"
+								+ " de lo contrario ingrese NO");
+					    entradaUsuario= entradaDeUsuario.nextLine();
+				    }
 				    if(entradaUsuario.contains("SI")){
 				    	cadaUsuario.comprar(cadaProducto);
 				    	System.out.println(cadaProducto.getNombre() + " fue agregado a su itinerario.\n");
+				    }else if(entradaUsuario.contains("NO")){
+				    	System.out.println(cadaProducto.getNombre() + " No fue agregado a su itinerario.\n");	
 				    }
 				    
 				    entradaUsuario="";
