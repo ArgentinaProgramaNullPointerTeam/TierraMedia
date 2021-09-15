@@ -26,9 +26,9 @@ public class ComparadorDeProductos implements Comparator<Producto> {
 		else if (this.atraccionPreferida != p1.getTipo() && this.atraccionPreferida == p2.getTipo())
 			return 1;
 		else {
-			if (p1 instanceof Promocion && p2 instanceof Atraccion)
+			if (p1.esPromocion()==true && p2.esPromocion()== false)
 				return -1;
-			else if (p1 instanceof Atraccion && p2 instanceof Promocion)
+			else if (p1.esPromocion()== false && p2.esPromocion()==true)
 				return 1;
 			else {
 				if (p1.getCostoDeVisita() > p2.getCostoDeVisita())
