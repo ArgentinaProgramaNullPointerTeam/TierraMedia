@@ -97,14 +97,13 @@ public class AdministradorDeArchivos {
 
 				List<Atraccion> atraccionesEnPromo = new ArrayList<Atraccion>();
 				int cantAtracciones = 0;
-				for (int i = 3; i < line.length - 1; i++) {
+				for (int i = 4; i < line.length - 1; i++) {
 					for (Atraccion atraccion : atracciones) {
 						if (atraccion.getNombre().equals(line[i])) {
 							atraccionesEnPromo.add(atraccion);
-						}else {
-							throw new Error("La atracción no está en el listado de atracciones");
 						}
-						
+					}if(atraccionesEnPromo.isEmpty()) {
+						throw new Error("La atracción no está en el listado de atracciones");
 					}
 
 				}
@@ -116,13 +115,13 @@ public class AdministradorDeArchivos {
 						cantAtracciones = Integer.parseInt(line[3]);
 					}
 				}
-				if(line[2].equals("Porcentual")) {
-					Promocion promocion = new PromocionPorcentual(line[0], cantAtracciones, atraccionesEnPromo, line[1], line[6]);
-					promociones.add(promocion);
-				}else if(line[2].equals("Absoluta")) {
+				if(line[1].equals("Porcentual")) {
+					Promocion promocionPorcentual = new PromocionPorcentual(line[0], cantAtracciones, atraccionesEnPromo, line[1], line[6]);
+					promociones.add(promocionPorcentual);
+				}else if(line[1].equals("Absoluta")) {
 					Promocion promocionAbsoluta = new PromocionAbsoluta(line[0], cantAtracciones, atraccionesEnPromo, line[1], line[6]);
 					promociones.add(promocionAbsoluta);
-				}else if(line[2].equals("AXB")){
+				}else if(line[1].equals("AXB")){
 					Promocion promocionAXB = new PromocionAXB(line[0], cantAtracciones, atraccionesEnPromo, line[1], line[6]);
 					promociones.add(promocionAXB);
 				}
