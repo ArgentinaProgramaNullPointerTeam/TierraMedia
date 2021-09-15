@@ -79,7 +79,8 @@ public class Usuario {
 
 	public boolean puedeComprar(Producto producto) {
 		return this.dineroDisponible >= producto.getCostoDeVisita()
-				&& this.tiempoDisponible >= producto.getTiempoDeVisita() && !producto.fueComprado(this.listaCompra);
+				&& this.tiempoDisponible >= producto.getTiempoDeVisita() 
+				&& !producto.fueComprado(this.listaCompra);
 	}
 
 	@Override
