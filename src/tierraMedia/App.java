@@ -47,7 +47,7 @@ public class App {
 			Collections.sort(productos, new ComparadorDeProductos(cadaUsuario.getAtraccionPreferida()));
 			System.out.println(saludoBienvenida(cadaUsuario.getNombre()));
 			for(Producto cadaProducto: productos) {
-				if(cadaUsuario.puedeComprar(cadaProducto)) {  
+				if(cadaUsuario.puedeComprar(cadaProducto)&& cadaProducto.hayCupo()) {  
 					System.out.println(cadaProducto.ofertas());
 					System.out.println("Si desea adquirir este producto ingrese SI, de lo contrario ingrese NO");
 				    entradaUsuario= entradaDeUsuario.nextLine();
@@ -58,9 +58,8 @@ public class App {
 				    
 				    entradaUsuario="";
 				}else if(!cadaUsuario.puedeComprar(cadaProducto)) {
-					System.out.println("No puede adquirir: " +cadaProducto.getNombre() +" porque no posee dinero o tiempo suficiente");
-				}else if(cadaProducto.fueComprado(cadaUsuario.getListaCompra())){
-					System.out.println("No puede adquirir: " + cadaProducto.getNombre() + " porque la/las atracciones ya fueron adquiridas anteriormente");
+					System.out.println("No puede adquirir: " +cadaProducto.getNombre() +
+							" porque no posee dinero o tiempo suficiente o ya adquirio alguna atraccion anteriormente");
 				}
 			}
 			
@@ -70,10 +69,10 @@ public class App {
 		entradaDeUsuario.close();
 		
 	     for(Usuario cadaUsuario: usuarios) {
-	    	 String listaCompra= cadaUsuario.getListaCompra().toString();
+	    	 String listaCompra= "Su itinerario es: /n"+ cadaUsuario.getListaCompra().toString();
 	    	 ArrayList<String> datos = new ArrayList<String>();
 	 		datos.add(listaCompra);
-	 		AdministradorDeArchivos.guardarArchivo(datos, "prueba");
+	 		AdministradorDeArchivos.guardarArchivo(datos, cadaUsuario.getNombre());
 	     }
 
 		
