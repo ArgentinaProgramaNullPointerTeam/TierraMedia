@@ -29,6 +29,9 @@ public abstract class Producto {
 	//Devuelve String concatenado
 	public abstract String ofertas();
 	
+	public abstract int getCupo();
+		
+	
 	public abstract boolean esOContiene(Producto otro);
 	
 

@@ -112,7 +112,16 @@ public class PromocionAXB extends Promocion {
 		}
 		return false;
 	}
-
 	
+	@Override
+	public int getCupo () {
+		int cupo=this.atracciones.get(0).getCupo();
+		for (Atraccion cadaAtraccion : this.atracciones) {
+			if(cadaAtraccion.getCupo()<cupo) {
+				cupo=cadaAtraccion.getCupo();
+			}
+		}
+		return cupo;
+	}
 	
 }
