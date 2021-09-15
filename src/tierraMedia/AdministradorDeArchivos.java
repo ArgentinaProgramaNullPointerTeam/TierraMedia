@@ -112,9 +112,17 @@ public class AdministradorDeArchivos {
 						cantAtracciones = Integer.parseInt(line[3]);
 					}
 				}
-				Promocion promocion = new Promocion(line[0], cantAtracciones, atraccionesEnPromo, line[1], line[6]);
-				promociones.add(promocion);
-				;
+				if(line[2].equals("Porcentual")) {
+					Promocion promocion = new PromocionPorcentual(line[0], cantAtracciones, atraccionesEnPromo, line[1], line[6]);
+					promociones.add(promocion);
+				}else if(line[2].equals("Absoluta")) {
+					Promocion promocionAbsoluta = new PromocionAbsoluta(line[0], cantAtracciones, atraccionesEnPromo, line[1], line[6]);
+					promociones.add(promocionAbsoluta);
+				}else if(line[2].equals("AXB")){
+					Promocion promocionAXB = new PromocionAXB(line[0], cantAtracciones, atraccionesEnPromo, line[1], line[6]);
+					promociones.add(promocionAXB);
+				}
+				
 
 			}
 
