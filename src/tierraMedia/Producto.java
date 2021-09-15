@@ -14,7 +14,7 @@ public abstract class Producto {
 	public abstract int getCostoDeVisita();
 	
 	//Devuelve el tipo de atraccion
-	public abstract TipoAtraccion getTipo();
+	public abstract TipoAtraccion getTipoAtracciones();
 	
 	//Devuelve el tiempo de la visita
 	public abstract double getTiempoDeVisita();
