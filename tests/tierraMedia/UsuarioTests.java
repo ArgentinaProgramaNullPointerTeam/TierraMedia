@@ -2,6 +2,9 @@ package tierraMedia;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +31,7 @@ public class UsuarioTests {
 	@Test
 	public void guardarSugerenciaTest() {
 		Producto sugerenciaAceptada = new Atraccion("Rivendel", 20, 1.5, 2, TipoAtraccion.AVENTURA);
-		usuario.guardarSugerencia(sugerenciaAceptada);
+		usuario.comprar(sugerenciaAceptada);
 		
 		int dineroDispObtenido = usuario.getDineroDisponible();
 		int dineroDispEsperado = 30;
@@ -58,9 +61,9 @@ public class UsuarioTests {
 		Producto sugerencia = new Atraccion("Edoras", 5, 0.5, 2, TipoAtraccion.AVENTURA);
 		Producto sugerencia2 = new Atraccion("Isengard", 5, 1, 2, TipoAtraccion.AVENTURA);
 		Producto sugerencia3 = new Atraccion("Rivendel", 10, 1, 2, TipoAtraccion.AVENTURA);
-		usuario.guardarSugerencia(sugerencia);
-		usuario.guardarSugerencia(sugerencia2);
-		usuario.guardarSugerencia(sugerencia3);
+		usuario.comprar(sugerencia);
+		usuario.comprar(sugerencia2);
+		usuario.comprar(sugerencia3);
 		assertEquals(20, usuario.getMonedasGastadas());
 		assertEquals(2.5, usuario.getTiempoGastado(),0);
 	}
