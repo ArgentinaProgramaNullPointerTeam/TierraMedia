@@ -3,26 +3,104 @@ package tierraMedia;
 import java.util.List;
 
 public class PromocionPorcentual extends Promocion {
-	private static String nombre;
-	private static int cantAtracciones;
-	private static List<Atraccion> atracciones;
-	private static String tipoPromocion;
-	private static Double descuento;
+
+	private String nombre;
+	private int cantAtracciones;
+	private List<Atraccion> atracciones;
+	private String tipoPromocion;
+	private double descuento;
 	private int costoDeVisita;
-	
+	private double tiempoDeVisita;
+
 	public PromocionPorcentual(String nombre, int cantAtracciones, List<Atraccion> atracciones, String tipoPromocion,
 			String descuento) {
-		super(nombre, cantAtracciones, atracciones, tipoPromocion, descuento);
-		
+		this.nombre = nombre;
+		this.cantAtracciones = cantAtracciones;
+		this.atracciones = atracciones;
+		this.tipoPromocion = tipoPromocion;
+		this.descuento = Double.parseDouble(descuento);
 	}
 
-	public int getCostoDeVisita(List<Atraccion> atracciones, String descuento) {
-	    costoDeVisita=0;
-	    PromocionPorcentual.descuento=Double.parseDouble(descuento);
-		for(Atraccion atraccion: atracciones) {
-			costoDeVisita+= atraccion.getCostoDeVisita();
+	@Override
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	@Override
+	public String getTipoPromocion() {
+        return this.tipoPromocion;
+	}
+
+	@Override
+	public String toString() {
+		return this.nombre + " " + this.cantAtracciones + " " + this.atracciones;
+	}
+
+	@Override
+	public boolean hayCupo() {
+		boolean cupo = true;
+		for (Atraccion cadaAtraccion : atracciones) {
+			if (!cadaAtraccion.hayCupo()) {
+				cupo = false;
+				break;
+			}
 		}
-		costoDeVisita=(int) (costoDeVisita-(costoDeVisita*PromocionPorcentual.descuento));
+		return cupo;
+	}
+
+	@Override
+	public double getTiempoDeVisita() {
+		for (Atraccion cadaAtraccion : atracciones) {
+			tiempoDeVisita += cadaAtraccion.getTiempoDeVisita();
+		}
+		return tiempoDeVisita;
+	}
+
+	@Override
+	public TipoAtraccion getTipoAtracciones() {
+		return this.atracciones.get(0).getTipoAtracciones();
+	}
+
+	@Override
+	public void restarCupo() {
+		for (Atraccion cadaAtraccion : atracciones) {
+			cadaAtraccion.restarCupo();
+		}
+	}
+
+	@Override
+	public boolean esPromocion() {
+		return true;
+	}
+
+	@Override
+	public String ofertas() {
+		String ofertaAtracciones = "";
+		for (Atraccion cadaAtraccion : this.atracciones) {
+			ofertaAtracciones = ofertaAtracciones + " " + cadaAtraccion.ofertas();
+		}
+		return "Nombre de promoción: " + this.nombre + ofertaAtracciones;
+	}
+
+	@Override
+	public boolean fueComprado(List<Producto> listaCompra) {
+		boolean contiene = false;
+		for (Atraccion cadaAtraccion : this.atracciones) {
+			if (listaCompra.contains(cadaAtraccion)) {
+				contiene = true;
+				break;
+			}
+			;
+		}
+		return contiene;
+	}
+
+	@Override
+	public int getCostoDeVisita() {
+		for (Atraccion atraccion : this.atracciones) {
+			costoDeVisita = costoDeVisita + atraccion.getCostoDeVisita();
+		}
+		costoDeVisita = (int) (costoDeVisita - (costoDeVisita * descuento));
 		return costoDeVisita;
 	}
 }
