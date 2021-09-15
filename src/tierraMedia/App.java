@@ -47,7 +47,7 @@ public class App {
 			Collections.sort(productos, new ComparadorDeProductos(cadaUsuario.getAtraccionPreferida()));
 			System.out.println(saludoBienvenida(cadaUsuario.getNombre()));
 			for(Producto cadaProducto: productos) {
-				if(cadaUsuario.puedeComprar(cadaProducto) &&!cadaProducto.fueComprado(cadaUsuario.getListaCompra())) {  
+				if(cadaUsuario.puedeComprar(cadaProducto)) {  
 					System.out.println(cadaProducto.ofertas());
 					System.out.println("Si desea adquirir este producto ingrese SI, de lo contrario ingrese NO");
 				    entradaUsuario= entradaDeUsuario.nextLine();
