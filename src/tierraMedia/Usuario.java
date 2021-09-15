@@ -63,7 +63,7 @@ public class Usuario {
 		return this.tiempoGastado;
 	}
 
-	public void guardarSugerencia(Producto producto) {
+	public void comprar(Producto producto) {
 		this.restarDinero(producto.getCostoDeVisita());
 		this.restarTiempo(producto.getTiempoDeVisita());
 		listaCompra.add(producto);
@@ -78,18 +78,13 @@ public class Usuario {
 	}
 
 	public boolean puedeComprar(Producto producto) {
-
 		return this.dineroDisponible >= producto.getCostoDeVisita()
-				&& this.tiempoDisponible >= producto.getTiempoDeVisita() 
-				&& !producto.fueComprado(this.listaCompra);
+				&& this.tiempoDisponible >= producto.getTiempoDeVisita() && !producto.fueComprado(this.listaCompra);
 	}
-
-	
 
 	@Override
 	public String toString() {
 		return "Nombre de usuario= " + nombre + ", Atraccion preferida= " + atraccionPreferida + ", Dinero disponible= "
 				+ dineroDisponible + ", Tiempo disponible= " + tiempoDisponible;
 	}
-
 }
