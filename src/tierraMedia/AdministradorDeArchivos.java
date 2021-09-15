@@ -81,6 +81,7 @@ public class AdministradorDeArchivos {
 		return atracciones;
 	}
 
+	@SuppressWarnings("resource")
 	public static List<Promocion> leerPromociones(List<Atraccion> atracciones) {
 		File f = new File("./archivos/promociones.txt");
 		Scanner sc;
@@ -101,7 +102,7 @@ public class AdministradorDeArchivos {
 						if (atraccion.getNombre().equals(line[i])) {
 							atraccionesEnPromo.add(atraccion);
 						}else {
-							throw new Error("La atracciÛn no est· en el listado de atracciones");
+							throw new Error("La atracci√≥n no est√° en el listado de atracciones");
 						}
 						
 					}
@@ -139,6 +140,7 @@ public class AdministradorDeArchivos {
 
 		return promociones;
 	}
+
 	public static void guardarArchivo(ArrayList<String> datosAGuardar, String ruta) {
 		PrintWriter salida = null;
 
