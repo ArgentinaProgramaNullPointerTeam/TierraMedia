@@ -1,5 +1,7 @@
 package tierraMedia;
 
+import java.util.List;
+
 /**
  * Clase que modela  la atraccion. Tiene un constructor con los @param nombre,
  * costoDeVisita, tiempoDeVisita, cupo y tipoAtraccion Tiene los getter
@@ -77,5 +79,14 @@ public class Atraccion extends Producto {
 		return "Nombre de Atracción =" + nombre + "Costo de visita =" + costoDeVisita
 				+ "Tiempo de visita = " + tiempoDeVisita ;
 	}
+
+	@Override
+	public boolean fueComprado(List<Producto> listaCompra) {
+		return listaCompra.contains(this);
+	}
+
+	
+
+	
 
 }
