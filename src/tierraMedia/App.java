@@ -12,36 +12,25 @@ public class App {
 	private static String entradaUsuario="";
 	
 	private static String saludoBienvenida(String nombreUsuario) {
-		return "Hola " + nombreUsuario;
+		return "Hola " + nombreUsuario + "\n";
 	}
 	
 	private static String saludoDespedida(String nombreUsuario) {
-		return "Que disfrute de su compra " + nombreUsuario;
+		return "Que disfrute de su compra " + nombreUsuario+ "\n";
 	}
 	public static void main(String[] args) {
 		List<Atraccion> atracciones;
 		List<Promocion> promociones;
 
-		
-		System.out.println("Leer\n");
 		usuarios = AdministradorDeArchivos.leerUsuarios(); // Tiene q devolver un array de usuarios
-
-		System.out.println("Leer\n");
-
 		atracciones = AdministradorDeArchivos.leerAtracciones();
-
 		promociones = AdministradorDeArchivos.leerPromociones(atracciones);
-		System.out.println(promociones);
 
 		productos.addAll(promociones);
 		productos.addAll(atracciones);
 
-		System.out.println(usuarios);
 
-		
-		
 		Scanner entradaDeUsuario=new Scanner(System.in);
-		
 		
 		for (Usuario cadaUsuario : usuarios) {
 			Collections.sort(productos, new ComparadorDeProductos(cadaUsuario.getAtraccionPreferida()));
@@ -49,31 +38,35 @@ public class App {
 			for(Producto cadaProducto: productos) {
 				if(cadaUsuario.puedeComprar(cadaProducto)&& cadaProducto.hayCupo()) {  
 					System.out.println(cadaProducto.ofertas());
-					System.out.println("Si desea adquirir este producto ingrese SI, de lo contrario ingrese NO");
+					System.out.println("Si desea adquirir este producto ingrese SI,"
+							+ " de lo contrario ingrese NO");
 				    entradaUsuario= entradaDeUsuario.nextLine();
 				    if(entradaUsuario.contains("SI")){
 				    	cadaUsuario.comprar(cadaProducto);
-				    	System.out.println(cadaProducto.getNombre() + " fue agregado a su itinerario.");
+				    	System.out.println(cadaProducto.getNombre() + " fue agregado a su itinerario.\n");
 				    }
 				    
 				    entradaUsuario="";
 				}else if(!cadaUsuario.puedeComprar(cadaProducto)) {
 					System.out.println("No puede adquirir: " +cadaProducto.getNombre() +
-							" porque no posee dinero o tiempo suficiente o ya adquirio alguna atraccion anteriormente");
+							"\n porque no posee dinero o tiempo suficiente \n "
+							+ "o ya adquirio alguna atraccion anteriormente\n");
 				}
 			}
 			
-			System.out.println(saludoDespedida(cadaUsuario.getNombre()));
-		    
-		}
-		entradaDeUsuario.close();
-		
-	     for(Usuario cadaUsuario: usuarios) {
-	    	 String listaCompra= "Su itinerario es: /n"+ cadaUsuario.getListaCompra().toString();
+			
+			String listaCompra= "Su itinerario es: \n"  + cadaUsuario.getListaCompra().toString()
+					+"\n Dinero total invertido: " + cadaUsuario.getMonedasGastadas()+" monedas.\n "
+					+"\n Tiempo total necesario: " + cadaUsuario.getTiempoGastado() + " horas.\n ";
 	    	 ArrayList<String> datos = new ArrayList<String>();
 	 		datos.add(listaCompra);
 	 		AdministradorDeArchivos.guardarArchivo(datos, cadaUsuario.getNombre());
-	     }
+	 		
+	 		System.out.println(saludoDespedida(cadaUsuario.getNombre())+
+					"\n Su archivo fue generado.------------------\n");
+		}
+		entradaDeUsuario.close();
+		
 
 		
 	}

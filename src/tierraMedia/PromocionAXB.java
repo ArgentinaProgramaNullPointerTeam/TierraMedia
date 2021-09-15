@@ -33,7 +33,8 @@ public class PromocionAXB extends Promocion {
 
 	@Override
 	public String toString() {
-		return this.nombre + " con  " + this.cantAtracciones + " atracciones " + this.atracciones;
+		return this.nombre + " con  " + this.cantAtracciones + " atracciones\n"
+				+ " " + this.atracciones;
 	}
 
 	@Override
@@ -75,11 +76,17 @@ public class PromocionAXB extends Promocion {
 
 	@Override
 	public String ofertas() {
+		Atraccion atraccionGratuita = this.atracciones.get(atracciones.size() - 1);
 		String ofertaAtracciones = "";
 		for (Atraccion cadaAtraccion : this.atracciones) {
-			ofertaAtracciones = ofertaAtracciones + " " + cadaAtraccion.ofertas();
+			ofertaAtracciones = ofertaAtracciones + " " + cadaAtraccion.getNombre()+ ". ";
 		}
-		return "Promoción disponible para adquirir: " + this.nombre + ofertaAtracciones;
+		return "Promoción disponible para adquirir: " + this.nombre +
+				"\nAtracciones que contiene:"+ofertaAtracciones+"\n¡"
+				+ atraccionGratuita.getNombre() + " es gratuita!"+"\n"
+				+"Costo total: " + this.getCostoDeVisita()+ " monedas"+"\n"+
+				"Tiempo total: " + this.getTiempoDeVisita()+ " horas";
+		
 	}
 
 	@Override

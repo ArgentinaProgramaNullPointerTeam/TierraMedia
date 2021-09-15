@@ -74,9 +74,13 @@ public class PromocionAbsoluta extends Promocion{
 	public String ofertas() {
 		String ofertaAtracciones = "";
 		for (Atraccion cadaAtraccion : this.atracciones) {
-			ofertaAtracciones = ofertaAtracciones + " " + cadaAtraccion.ofertas();
+			ofertaAtracciones = ofertaAtracciones + " " + cadaAtraccion.getNombre()+ ". ";
 		}
-		return "Promoción disponible para adquirir: " + this.nombre + ofertaAtracciones;
+		return "Promoción disponible para adquirir: " + this.nombre +
+				"\nAtracciones que contiene:"+ofertaAtracciones+"\n"
+				+"Costo total: " + this.getCostoDeVisita()+ " monedas"+"\n"+
+				"Tiempo total: " + this.getTiempoDeVisita()+ " horas";
+		
 	}
 
 

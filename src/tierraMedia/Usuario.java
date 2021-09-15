@@ -46,8 +46,12 @@ public class Usuario {
 		return tiempoDisponible;
 	}
 
-	public List<Producto> getListaCompra() {
-		return listaCompra;
+	public String getListaCompra() {
+		String listaArchivo= "";
+		for(Producto producto: listaCompra) {
+			listaArchivo= listaArchivo + "\n" + producto.ofertas()+ " \n";
+		}
+		return listaArchivo;
 	}
 
 	public int getMonedasGastadas() {
