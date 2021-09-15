@@ -33,7 +33,7 @@ public class PromocionAXB extends Promocion{
 
 	@Override
 	public String toString() {
-		return this.nombre + " " + this.cantAtracciones + " " + this.atracciones;
+		return this.nombre + " con  " + this.cantAtracciones + " atracciones " + this.atracciones;
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class PromocionAXB extends Promocion{
 		for (Atraccion cadaAtraccion : this.atracciones) {
 			ofertaAtracciones = ofertaAtracciones + " " + cadaAtraccion.ofertas();
 		}
-		return "Nombre de promoción: " + this.nombre + ofertaAtracciones;
+		return "Promoción disponible para adquirir: " + this.nombre + ofertaAtracciones;
 	}
 
 	@Override
