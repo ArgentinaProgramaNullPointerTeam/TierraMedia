@@ -100,7 +100,10 @@ public class AdministradorDeArchivos {
 					for (Atraccion atraccion : atracciones) {
 						if (atraccion.getNombre().equals(line[i])) {
 							atraccionesEnPromo.add(atraccion);
+						}else {
+							throw new Error("La atracción no está en el listado de atracciones");
 						}
+						
 					}
 
 				}
