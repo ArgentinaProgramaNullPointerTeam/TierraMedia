@@ -21,6 +21,7 @@ public class Usuario {
 	private List<Producto> listaCompra = new ArrayList<Producto>();
 	private int monedasGastadas;
 	private double tiempoGastado;
+	
 
 	public Usuario(String nombre, TipoAtraccion atraccionPreferida, int dineroDisponible, double tiempoDisponible) {
 		this.nombre = nombre;
@@ -80,7 +81,7 @@ public class Usuario {
 	public boolean puedeComprar(Producto producto) {
 		return this.dineroDisponible >= producto.getCostoDeVisita()
 				&& this.tiempoDisponible >= producto.getTiempoDeVisita() 
-				&& !producto.fueComprado(this.listaCompra);
+				&& !yaCompro(producto);
 	}
 
 	@Override
@@ -88,4 +89,12 @@ public class Usuario {
 		return "Nombre de usuario= " + nombre + ", Atraccion preferida= " + atraccionPreferida + ", Dinero disponible= "
 				+ dineroDisponible + ", Tiempo disponible= " + tiempoDisponible;
 	}
+	
+	public boolean yaCompro(Producto otro){
+		  for(Producto cadaProductoItinerario: listaCompra){
+		    if(otro.esOContiene(cadaProductoItinerario) || cadaProductoItinerario.esOContiene(otro)) 
+		      return true;
+		  }
+		  return false;
+		}
 }
