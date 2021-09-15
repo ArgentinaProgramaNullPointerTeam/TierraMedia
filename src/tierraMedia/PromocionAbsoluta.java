@@ -19,11 +19,12 @@ public class PromocionAbsoluta extends Promocion{
 		this.descuento = Integer.parseInt(descuento);
 	}
 
-
+	@Override
 	public String getNombre() {
 		return this.nombre;
 	}
-
+	
+	@Override
 	public String getTipoPromocion() {
         return this.tipoPromocion;
 	}
