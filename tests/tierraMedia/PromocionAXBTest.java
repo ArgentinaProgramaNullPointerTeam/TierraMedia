@@ -74,11 +74,33 @@ public class PromocionAXBTest {
 	@Test
 	public void noEstaIncluidaTest() {
 		Producto atraccionIncluida = new Atraccion("Rivendel", 10, 2, 6, TipoAtraccion.AVENTURA);
-		Producto atraccionNoIncluida = new Atraccion("Isengard", 10, 2.5, 23, TipoAtraccion.PAISAJE);
+		Producto atraccionNoIncluida = new Atraccion("Isengard", 10, 2.5, 23, TipoAtraccion.AVENTURA);
 
 		assertTrue(promo.esOContiene(atraccionIncluida));
 		assertFalse(promo.esOContiene(atraccionNoIncluida));
 	}
-
+	@Test
+	public void hayCupoTest () {
+		promo.restarCupo();
+		promo.restarCupo();
+		promo.restarCupo();
+		promo.restarCupo();
+		promo.restarCupo();		
+		assertTrue(promo.hayCupo());
+	}
+	@Test
+	public void noHayCupoTest() {
+		promo.restarCupo();
+		promo.restarCupo();
+		promo.restarCupo();
+		promo.restarCupo();
+		promo.restarCupo();
+		promo.restarCupo();
+		assertFalse(promo.hayCupo());
+	}
+	@Test
+	public void esPromocionTest() {
+		assertTrue(promo.esPromocion());
+	}
 
 }
