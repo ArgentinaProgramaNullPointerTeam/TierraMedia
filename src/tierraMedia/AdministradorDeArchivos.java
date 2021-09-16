@@ -11,7 +11,7 @@ public class AdministradorDeArchivos {
 	}
 
 	public static List<Usuario> leerUsuarios() {
-		File f = new File("./archivos/usuarios.txt"); // creo el archivo con la ruta
+		File f = new File("./archivosDeEntrada/usuarios.txt"); // creo el archivo con la ruta
 		Scanner sc; // abro el scanner
 		List<Usuario> usuarios = new ArrayList<Usuario>(); // creo el arraylist
 		String[] line; // aca guardo linea spliteada
@@ -45,7 +45,7 @@ public class AdministradorDeArchivos {
 //LEER ARCHIVO DE ATRACCIONES
 
 	public static List<Atraccion> leerAtracciones() {
-		File f = new File("./archivos/atracciones.txt"); // creo el archivo con la ruta
+		File f = new File("./archivosDeEntrada/atracciones.txt"); // creo el archivo con la ruta
 		Scanner sc; // abro el scanner
 		List<Atraccion> atracciones = new ArrayList<Atraccion>();
 		String[] line; // aca guardo linea spliteada
@@ -83,7 +83,7 @@ public class AdministradorDeArchivos {
 
 	@SuppressWarnings("resource")
 	public static List<Promocion> leerPromociones(List<Atraccion> atracciones) {
-		File f = new File("./archivos/promociones.txt");
+		File f = new File("./archivosDeEntrada/promociones.txt");
 		Scanner sc;
 		List<Promocion> promociones = new ArrayList<Promocion>();
 		String[] line;
@@ -144,7 +144,7 @@ public class AdministradorDeArchivos {
 		PrintWriter salida = null;
 
 		try {
-			salida = new PrintWriter(new FileWriter("archivos/" + ruta + ".txt"));
+			salida = new PrintWriter(new FileWriter("archivosDeSalida/" + ruta + ".txt"));
 
 			for (String dato : datosAGuardar) {
 				salida.print(dato);
