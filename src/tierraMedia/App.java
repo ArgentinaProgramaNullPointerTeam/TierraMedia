@@ -41,7 +41,7 @@ public class App {
 					System.out.println("Si desea adquirir este producto ingrese SI,"
 							+ " de lo contrario ingrese NO");
 				    entradaUsuario= entradaDeUsuario.nextLine();
-				    if((!entradaUsuario.contains("NO"))||(!entradaUsuario.contains("SI"))){
+				    if((!entradaUsuario.contains("NO"))&&(!entradaUsuario.contains("SI"))){
 				    	System.out.println("Si desea adquirir este producto ingrese SI,"
 								+ " de lo contrario ingrese NO");
 					    entradaUsuario= entradaDeUsuario.nextLine();

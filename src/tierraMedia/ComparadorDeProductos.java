@@ -11,7 +11,6 @@ public class ComparadorDeProductos implements Comparator<Producto> {
 		this.atraccionPreferida = atraccionPreferida;
 	}
 
-	@Override
 	public int compare(Producto p1, Producto p2) {
 		/*
 		 * Metodo que ordena segun prioridades: 
