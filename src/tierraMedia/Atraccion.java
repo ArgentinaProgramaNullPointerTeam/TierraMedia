@@ -1,5 +1,7 @@
 package tierraMedia;
 
+import java.util.Objects;
+
 /**
  * Clase que modela  la atraccion. Tiene un constructor con los @param nombre,
  * costoDeVisita, tiempoDeVisita, cupo y tipoAtraccion Tiene los getter
@@ -85,11 +87,22 @@ public class Atraccion extends Producto {
 		return this.equals(otro);
 	}
 
-	
-	
-	
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(costoDeVisita, cupo, nombre, tiempoDeVisita, tipoAtraccion);
+	}
 
-	
-
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Atraccion other = (Atraccion) obj;
+		return costoDeVisita == other.costoDeVisita && cupo == other.cupo && Objects.equals(nombre, other.nombre)
+				&& Double.doubleToLongBits(tiempoDeVisita) == Double.doubleToLongBits(other.tiempoDeVisita)
+				&& tipoAtraccion == other.tipoAtraccion;
+	}
 }
