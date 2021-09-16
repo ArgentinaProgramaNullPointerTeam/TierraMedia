@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class App {
 	private static List<Usuario> usuarios = new ArrayList<Usuario>();
 	private static List<Producto> productos = new ArrayList<Producto>();
+	private static List<Atraccion> atracciones= new ArrayList<Atraccion>();
+	private static List<Promocion> promociones= new ArrayList<Promocion>();
 	private static String entradaUsuario="";
 	
 	private static String saludoBienvenida(String nombreUsuario) {
@@ -19,9 +21,7 @@ public class App {
 		return "Que disfrute de su compra " + nombreUsuario+ "\n";
 	}
 	public static void main(String[] args) {
-		List<Atraccion> atracciones;
-		List<Promocion> promociones;
-
+		
 		usuarios = AdministradorDeArchivos.leerUsuarios(); // Tiene q devolver un array de usuarios
 		atracciones = AdministradorDeArchivos.leerAtracciones();
 		promociones = AdministradorDeArchivos.leerPromociones(atracciones);
