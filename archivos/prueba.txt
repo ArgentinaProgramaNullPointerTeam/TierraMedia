@@ -1,1 +1,0 @@
-[Atraccion [nombre=Moria, costoDeVisita=10, tiempoDeVisita=2.0, cupo=6, tipoAtraccion=AVENTURA]]
