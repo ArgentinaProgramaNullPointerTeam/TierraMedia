@@ -95,7 +95,8 @@ public class AdministradorDeArchivos {
 				line = sc.nextLine().split("-"); // SEPARA LOS ATRIBUTOS - el split cada vez que encuentra un guion,
 													// devuelve un array
 
-				List<Atraccion> atraccionesEnPromo = new ArrayList<Atraccion>();
+				List<Atraccion> atraccionesEnPromo = new ArrayList<Atraccion>(); //For 
+				
 				int cantAtracciones = 0;
 				for (int i = 4; i < line.length - 1; i++) {
 					for (Atraccion atraccion : atracciones) {
