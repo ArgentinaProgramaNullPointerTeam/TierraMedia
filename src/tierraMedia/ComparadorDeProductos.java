@@ -21,21 +21,21 @@ public class ComparadorDeProductos implements Comparator<Producto> {
 		 * 4 Mayor tiempo
 		 */
 		if (this.atraccionPreferida == p1.getTipoAtracciones() && this.atraccionPreferida != p2.getTipoAtracciones())
-			return -1; // Espera la primer atraccion
+			return -1;
 		else if (this.atraccionPreferida != p1.getTipoAtracciones() && this.atraccionPreferida == p2.getTipoAtracciones())
-			return 1; // espera la segunda
+			return 1;
 		else {
 			if (p1.esPromocion()==true && p2.esPromocion()== false)
-				return -1; // primera
+				return -1;
 			else if (p1.esPromocion()== false && p2.esPromocion()==true)
-				return 1; // segunda
+				return 1;
 			else {
 				if (p1.getCostoDeVisita() > p2.getCostoDeVisita())
-					return -1; // primera
+					return -1;
 				else if (p1.getCostoDeVisita() < p2.getCostoDeVisita())
-					return 1; 
+					return 1;
 				else {
-					return -1*Double.compare(p1.getTiempoDeVisita(), p2.getTiempoDeVisita()); //aca compara los timepos de visita y pone el q tenga mas tiempo primero
+					return -1*Double.compare(p1.getTiempoDeVisita(), p2.getTiempoDeVisita());
 				}
 			}
 
